@@ -6,6 +6,7 @@
 # Go
 day*/part*/day*
 !Day*/Part*/day*.Go
+day*/part*/*input.txt
 
 # dotenv files
 .env
