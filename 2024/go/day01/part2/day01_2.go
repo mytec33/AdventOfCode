@@ -48,7 +48,10 @@ func main() {
 
 	var similarityScore int
 	for _, lv := range listLeft {
-		similarityScore += occurances[lv] * lv
+		val, ok := occurances[lv]
+		if ok {
+			similarityScore += val * lv
+		}
 	}
 
 	fmt.Printf("Similarity score: %v\n", similarityScore)
