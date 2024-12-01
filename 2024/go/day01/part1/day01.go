@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"log"
+	"math"
 	"os"
 	"slices"
 	"strconv"
@@ -49,15 +50,8 @@ func main() {
 
 	var totalDistance int
 	for i := range listLeft {
-		totalDistance += diff(listLeft[i], listRight[i])
+		totalDistance += int(math.Abs(float64(listLeft[i] - listRight[i])))
 	}
 
 	fmt.Printf("Total distance: %v\n", totalDistance)
-}
-
-func diff(a, b int) int {
-	if a < b {
-		return b - a
-	}
-	return a - b
 }
