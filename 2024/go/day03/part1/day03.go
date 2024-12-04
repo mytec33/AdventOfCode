@@ -17,6 +17,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer file.Close()
 
 	var sum = 0
 	scanner := bufio.NewScanner(file)
@@ -40,6 +41,10 @@ func main() {
 
 			sum += left * right
 		}
+	}
+
+	if err := scanner.Err(); err != nil {
+		log.Fatalf("Scanner error: %v\n", err)
 	}
 
 	fmt.Printf("Sum: %v\n", sum)
